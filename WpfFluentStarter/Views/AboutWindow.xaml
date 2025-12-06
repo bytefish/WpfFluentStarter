@@ -1,0 +1,73 @@
+﻿<Window x:Class="WpfFluentStarter.Views.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="About" 
+        Height="450" Width="400"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        DataContext="{Binding Source={StaticResource Locator}, Path=AboutWindow}"
+        WindowStyle="SingleBorderWindow"
+        Background="{DynamicResource SolidBackgroundFillColorBaseBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+
+            <Viewbox Width="64" Height="64" Margin="0,0,0,15">
+                <Path Fill="{DynamicResource {x:Static SystemColors.AccentColorBrushKey}}"
+                      Data="M12,2L1,21H23M12,6L19.53,19H4.47" />
+            </Viewbox>
+
+            <TextBlock Text="My Application Here" 
+                       FontSize="24" 
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Center"
+                       Foreground="{DynamicResource SystemControlTextControlForegroundBaseHighBrush}"/>
+
+            <TextBlock Text="Version 1.0.0 (Beta)" 
+                       FontSize="14" 
+                       Foreground="Gray"
+                       HorizontalAlignment="Center" 
+                       Margin="0,0,0,20"/>
+
+            <TextBlock Text="Describe your application here..." 
+                       TextWrapping="Wrap" 
+                       TextAlignment="Center" 
+                       Margin="20,0,20,20"
+                       Foreground="{DynamicResource SystemControlTextControlForegroundBaseMediumBrush}"/>
+
+            <TextBlock HorizontalAlignment="Center">
+                <Hyperlink NavigateUri="https://www.bytefish.de" RequestNavigate="Hyperlink_RequestNavigate">
+                    Visit Our Website
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+
+        <Border Grid.Row="1" 
+                Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}" 
+                Padding="15">
+            <StackPanel>
+                <TextBlock Text="© 2025 Philipp Wagner. All rights reserved." 
+                           FontSize="10" 
+                           Foreground="Gray" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,0,0,10"/>
+
+                <Button 
+                    x:Name="CloseButton"
+                    Content="OK" 
+                        IsDefault="True"
+                        Click="CloseButton_Click"
+                        HorizontalAlignment="Center"
+                        Width="100"
+                        Style="{DynamicResource AccentButtonStyle}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
